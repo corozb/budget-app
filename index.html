@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Finances || Follow your expenses</title>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+  <div class="container">
+      <h2 class="title">My Finances</h2>
+      <div class="info-resume">
+          <h6>income</h6>
+          <span class="budget-icon"></span>
+          <h4 class="income">
+            <span>$ </span>
+            <span class="income-amount">0</span>
+          </h4>
+
+          <h6>expenses</h6>
+          <span class="expenses"></span>
+          <h4 class="expenses-icon">
+            <span>$ </span>
+            <span class="expenses-amount">0</span>
+          </h4>
+
+          <h6>balance</h6>
+          <span class="balance-icon"></span>
+          <h4 class="balance">
+            <span>$ </span>
+            <span class="balance-amount">0</span>
+          </h4>
+
+      </div>
+      
+      <div class="entry entry-budget">
+        <h5>Add Income</h5>
+        <form action="" class="budgetForm">
+          <input type="number" class="budget-input">
+          <button type="submit" class="btn-income"> Add </button>
+        </form>
+      </div>
+
+      <div class="entry entry-expenses">
+        <h5>Add Expense</h5>
+        <form action="" class="expensesForm">
+          <h4>Amount</h4>
+          <input type="number" class="expense-input">
+
+          <h4>Description</h4>
+          <input type="text" class="description">
+          <button type="submit" class="btn-expenses">Add </button>
+        </form>
+      </div>
+
+      <div class="details">
+        <div class="expensesList">
+          <h5 class="listItem">expense description</h5>
+          <h5 class="listItem">expense value</h5>
+          <h5 class="listItem"></h5>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
