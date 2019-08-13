@@ -98,6 +98,8 @@ button:hover {
   margin-bottom: 20px;
 }
 
+
+/* ------- icons resume zone */
 .info-resume {
   grid-area: info;
   display: grid;
@@ -115,7 +117,7 @@ button:hover {
 }
 
 .info h6 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   margin-bottom: 8px;
   color: #fff;
@@ -123,7 +125,7 @@ button:hover {
 }
 
 .info span i {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
   color: #27C1AD
 }
@@ -133,7 +135,7 @@ button:hover {
 }
 
 .info h4 {
-  font-size: 2.6rem
+  font-size: 2rem
 }
 
 .income {
@@ -147,13 +149,15 @@ button:hover {
   color: #F3B934
 }
 
+
+/* ----- descripcion of expenses */
 .details {
-  grid-area: description;
   margin: 1rem;
   overflow: auto;
 }
 
 .expensesList {
+  grid-area: description;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr auto;
@@ -179,4 +183,21 @@ button:hover {
 }
 
 
+/* responsive */
 
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto) 200px;
+    grid-template-areas: 
+    "info"
+    "income" 
+    "expense" 
+    "description"
+  }
+
+  .info-resume {
+    padding: 20px
+  }
+
+}
