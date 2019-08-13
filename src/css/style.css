@@ -21,6 +21,19 @@ body{
   "expense description";
 }
 
+.income-feedback,
+.expense-feedback {
+  display: none;
+  text-transform: capitalize;
+  color: #721c24;
+  border-color: #F92F54;
+  background: #f5c6cb;
+  padding: 13px;
+  border-radius: 7px;
+  margin-bottom: 10px
+
+}
+
 .title {
   background: linear-gradient(-45deg, #27C1AD, #287596);
   font-size: 40px;
