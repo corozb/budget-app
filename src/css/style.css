@@ -31,7 +31,10 @@ body{
   padding: 13px;
   border-radius: 7px;
   margin-bottom: 10px
+}
 
+.showAlert {
+  display: block
 }
 
 .title {
@@ -159,6 +162,18 @@ button:hover {
 }
 
 .balance {
+  color: #F3B934
+}
+
+.showGood {
+  color: greenyellow
+}
+
+.showWarning {
+  color: red
+}
+
+.showBalance {
   color: #F3B934
 }
 

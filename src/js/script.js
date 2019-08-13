@@ -20,7 +20,47 @@ class Cashflow {
   }
   // submit budget method
   sendBudgetForm(){
-    console.log('its working')
+    const value = this.budgetInput.value
+    if (value ==='' || value <=0) {
+      this.incomeFeedback.classList.add('showAlert')
+      this.incomeFeedback.innerHTML = `<p>Value can't be empty or negative</p>`
+
+      const self = this
+
+      setTimeout(function(){
+        self.incomeFeedback.classList.remove('showAlert')
+          
+      }, 2000)
+    } else {
+      this.incomeAmount.textContent = value
+      this.budgetInput.value =''
+      this.showBalance()
+    }
+  }
+  // show balance
+  showBalance() {
+    const expense = this.totalExpense()
+    const total = parseInt(this.incomeAmount.textContent) - expense
+    this.balance.textContent = total
+
+    if (total < 0) {
+      this.balance.classList.remove('showGood', 'showBalance')
+      this.balance.classList.add('showWarning')
+    }
+    else if (total > 0) {
+      this.balance.classList.remove('showWarning', 'showGood')
+      this.balance.classList.add('showBalance')
+    } 
+    else {
+      this.balance.classList.remove('showWarning', 'showBalance')
+      this.balance.classList.add('showGood')
+    }
+  }
+
+  //total expense
+  totalExpense(){
+    let total = 1000
+    return total
   }
 }
 
