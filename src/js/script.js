@@ -27,16 +27,16 @@ class Cashflow {
 
       const self = this
 
-      setTimeout(function(){
+      setTimeout(() => {
         self.incomeFeedback.classList.remove('showAlert')
-          
       }, 2000)
     } else {
       this.incomeAmount.textContent = value
       this.budgetInput.value =''
       this.showBalance()
-    }
+    } 
   }
+
   // show balance
   showBalance() {
     const expense = this.totalExpense()
@@ -55,6 +55,62 @@ class Cashflow {
       this.balance.classList.remove('showWarning', 'showBalance')
       this.balance.classList.add('showGood')
     }
+  }
+
+  // submit expense form
+  inputExpenseForm() {
+    const amountValue = this.expenseInput.value
+    const expenseDesc = this.expenseDes.value
+
+    if (expenseDesc === '' || amountValue === '' || amountValue < 0) {
+      this.expenseFeedback.classList.add('showAlert')
+      this.expenseFeedback.innerHTML = `<p>Value can't be empty or negative</p>`
+      
+      const self = this
+
+      setTimeout(() => {
+        self.expenseFeedback.classList.remove('showAlert')
+      }, 2000)
+    } else {
+      let amount = parseInt(amountValue)
+      this.expenseInput.value = "" //clear form
+      this.expenseDes.value = ""
+
+      let expense = {
+        id:this.expenseId,
+        title:expenseDesc,
+        amount //amount:amount
+      }
+      
+      this.expenseId++
+      this.expensesList.push(expense)
+      this.addExpense(expense)
+      // show balance
+    }
+  }
+
+  // add expense
+  addExpense(expense) {
+    const div = document.createElement('div')
+    div.classList.add('expense-text')
+    div.innerHTML = `
+    <div class="expense-item">
+
+     <h6 class="expense-title"><i class="fas fa-clipboard-list"></i> ${expense.title}</h6>
+     <h5 class="expense-amount">$ ${expense.amount}</h5>
+
+     <div class="expense-icons">
+
+      <a href="#" class="edit-icon" data-id="${expense.id}">
+       <i class="fas fa-edit"></i>
+      </a>
+      <a href="#" class="delete-icon" data-id="${expense.id}">
+       <i class="fas fa-trash"></i>
+      </a>
+     </div>
+    `
+
+    this.details.appendChild(div)
   }
 
   //total expense
@@ -81,7 +137,7 @@ function eventLoader() {
   // expense form submit
   expenseForm.addEventListener('submit', function(e) {
     e.preventDefault()
-
+    cashflow.inputExpenseForm()
   })
 
   // expense click
