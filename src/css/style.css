@@ -186,6 +186,7 @@ button:hover {
 
 .expensesList {
   grid-area: description;
+  color: #1B9EB2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr auto;
@@ -208,6 +209,39 @@ button:hover {
 
 .listItem .delete {
   grid-area: delete
+}
+
+.details .expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 2rem;
+  width: 100%;
+  border: 1px solid #F9F9FB;
+  margin: .5rem 0;
+  border-radius: .2rem;
+  box-shadow: -3px 3px 47px -9px rgba(158,155,158,0.63);
+}
+
+.details .expense-title {
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: .9rem;
+  color: #5F6579
+}
+
+.details .expense-amount {
+  color: rgb(166, 177, 196)
+}
+
+.details .expense-item a i {
+  color: #A4ACB2
+}
+
+.details .expense-icons {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
 }
 
 
