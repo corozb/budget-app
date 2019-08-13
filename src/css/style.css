@@ -5,25 +5,24 @@
 
 body{
   font-family: 'Comfortaa', cursive;
-  background: linear-gradient(45deg, #3364F6, #4BCCF4)
+  background: #fff;
 }
 
 .container {
   width: 95%;
   max-width: 1200px;
-  height: 100vh;
+  height: 86vh;
   margin: auto;
   display: grid;
   grid-template-columns: 45% 1fr;
-  grid-template-rows: 20%% 45% 2fr;
+  grid-template-rows: 46% 1fr;
   grid-template-areas: 
-    "title title"
-    "income info"
-    "expense description";
+  "income info"
+  "expense description";
 }
 
 .title {
-  grid-area: title;
+  background: linear-gradient(-45deg, #27C1AD, #287596);
   font-size: 40px;
   padding: 20px;
   /* color: #3D8EFD; */
@@ -38,37 +37,29 @@ body{
 }
 
 .entry-expenses {
+  grid-area: expense;
   padding: 0 1rem;
 }
 
 .entry h5 {
   border-radius: 0.25rem 0.25rem 0 0;
-  padding-left: 20px;
   display: flex;
   height: 2em;
   align-items: center;
   font-size: 1.25rem;
-  color: #fff;
+  color: #27C1AD;
 }
 
-.entry-budget h5 {
-  background: #3D8EFD;
-}
-
-
-.entry-expenses h5 {
-  background: #F92F54;
-}
-
-.entry-expenses button {
+.entry-expenses button:hover {
   background: linear-gradient(-45deg, #F92F54, rgb(216, 28, 62));
 }
 
 form {
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0.25rem;
   padding: 1rem;
-  border: 0.15rem solid #3D8EFD;
-  background: #fff
+  border: 0.15rem solid transparent;
+  background: #fff;
+  box-shadow: -3px 3px 47px -9px rgba(158,155,158,0.63);
 }
 
 input {
@@ -86,21 +77,21 @@ input {
 }
 
 button {
-  border-radius: 11px;
+  border-radius: 20px;
+  width: 6rem;
   padding: 7px;
   font-size: 18px;
   margin-top: 1rem;
-  background: linear-gradient(-45deg,#50AFEA, #1F7BFC);
+  background: #27C1AD;
   color: #fff;
   border: none;
   outline: none;
   cursor: pointer;
-  margin-left: 88%;
 }
 
 button:hover {
   transform: scale(.9);
-  background: greenyellow
+  background: #3D8EFD
 }
 
 .expense-input {
@@ -109,20 +100,83 @@ button:hover {
 
 .info-resume {
   grid-area: info;
-  /* background: red */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "info-income info-expense balance";
+  background: linear-gradient(-45deg, #27C1AD, #287596);
+  margin: 1rem;
+  border-radius: .6rem;
+  box-shadow: -3px 3px 47px -9px rgba(158,155,158,0.63);
 } 
 
+.info {
+  text-align: center;
+  margin: auto 0;
+}
 
-.entry-expenses {
-  grid-area: expense;
-  /* background: forestgreen */
+.info h6 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #fff;
+  font-weight: lighter;
+}
+
+.info span i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #27C1AD
+}
+
+.budget-icon i {
+  color: greenyellow
+}
+
+.info h4 {
+  font-size: 2.6rem
+}
+
+.income {
+  color: greenyellow
+}
+.expenses {
+  color: #F92F54
+}
+
+.balance {
+  color: #F3B934
 }
 
 .details {
   grid-area: description;
-  /* background: tomato */
+  margin: 1rem;
+  overflow: auto;
 }
 
+.expensesList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "descrip value delete";
+}
+
+.listItem {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.listItem .expense-desc {
+  grid-area: descrip;
+}
+
+.listItem .value {
+  grid-area: value
+}
+
+.listItem .delete {
+  grid-area: delete
+}
 
 
 
