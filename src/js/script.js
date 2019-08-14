@@ -127,6 +127,38 @@ class Cashflow {
     this.expenseAmount.textContent = total
     return total
   }
+
+  // edit expense
+  editExpense(element) {
+    let id = parseInt(element.dataset.id)
+    // let parent = element.parentElement.parentElement.parentElement
+    let parent = document.querySelector('.expense-text')
+    
+    // remove from DOM
+    this.details.removeChild(parent)
+    
+    let itemExpense = this.expensesList.filter((item) => {
+      return item.id === id
+    })
+    
+    //show value
+    this.expenseInput.value = itemExpense[0].amount
+    this.expenseDes.value = itemExpense[0].title 
+    
+    // remove from the list
+    let tempList = this.expensesList.filter(function(item){
+      return item.id !== id
+    }) 
+    debugger
+
+    this.expensesList = tempList
+    this.showBalance()
+  }
+
+  // delete expense
+  deleteItem(element) {
+
+  }
 }
 
 function eventLoader() {
@@ -150,12 +182,15 @@ function eventLoader() {
   })
 
   // expense click
-  details.addEventListener('click', function() {
-
+  details.addEventListener('click', function(e) {
+    if (e.target.parentElement.classList.contains('edit-icon')) {
+      cashflow.editExpense(e.target.parentElement)
+    }
+    else if (e.target.parentElement.classList.contains('delete-icon')) {
+      cashflow.deleteExpense(e.target.parentElement)
+    }
   })
-
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
   eventLoader()

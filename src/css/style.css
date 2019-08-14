@@ -239,15 +239,21 @@ button:hover {
   color: rgb(166, 177, 196)
 }
 
-.details .expense-item a i {
-  color: #A4ACB2
-}
-
 .details .expense-icons {
   font-size: 0.9rem;
   margin-right: 0.5rem;
 }
 
+.edit-icon,
+.delete-icon {
+  color: #A4ACB2;
+  cursor: pointer;
+}
+
+.delete-icon:hover,
+.edit-icon:hover {
+  color: #0f0f0f;
+}
 
 /* responsive */
 
