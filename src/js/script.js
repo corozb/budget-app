@@ -149,15 +149,27 @@ class Cashflow {
     let tempList = this.expensesList.filter(function(item){
       return item.id !== id
     }) 
-    debugger
 
     this.expensesList = tempList
     this.showBalance()
   }
 
   // delete expense
-  deleteItem(element) {
+  deleteExpense(element) {
+    let id = parseInt(element.dataset.id)
+    // let parent = element.parentElement.parentElement.parentElement
+    let parent = document.querySelector('.expense-text')
+    
+    // remove from DOM
+    this.details.removeChild(parent)
+    
+    // remove from the list
+    let tempList = this.expensesList.filter(function(item){
+      return item.id !== id
+    }) 
 
+    this.expensesList = tempList
+    this.showBalance()
   }
 }
 
