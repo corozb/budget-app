@@ -85,7 +85,9 @@ class Cashflow {
       this.expenseId++
       this.expensesList.push(expense)
       this.addExpense(expense)
+      
       // show balance
+      this.showBalance()
     }
   }
 
@@ -114,8 +116,15 @@ class Cashflow {
   }
 
   //total expense
-  totalExpense(){
-    let total = 1000
+  totalExpense() {
+    let total = 0
+    if (this.expensesList.length > 0) {
+      total = this.expensesList.reduce(function(counter, amountValue) {
+        counter += amountValue.amount
+        return counter
+      },0)
+    }
+    this.expenseAmount.textContent = total
     return total
   }
 }

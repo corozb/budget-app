@@ -231,6 +231,10 @@ button:hover {
   color: #5F6579
 }
 
+.details .expense-title i {
+  color: #27C1AD;
+}
+
 .details .expense-amount {
   color: rgb(166, 177, 196)
 }
